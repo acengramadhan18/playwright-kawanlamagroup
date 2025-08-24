@@ -1,0 +1,16 @@
+Set Up
+- Install extension Playwright di VSCode
+- Install 'npm install playwright'
+- npm init playwright@latest
+- npm i -D allure-playwright
+- npx playwright codegen --viewport-size=1400,575 --channel='chrome' (record dengan Chrome)
+- npx playwright test login.spec.ts (untuk running)
+- npx playwright test login.spec.ts --project=chromium --headed (untuk running dengan tampilan depan)
+
+Cara naik ke TFS
+- git checkout -b Fikri/SingleID
+- git pull origin Master
+- Choose > input comment > commit
+- Klik Push
+- Login tfs
+- Pull Request
