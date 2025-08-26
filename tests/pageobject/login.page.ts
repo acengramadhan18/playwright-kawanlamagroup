@@ -9,7 +9,7 @@ export class LoginPage {
 
     async openWeb(){
         await this.page.goto("https://karir.kawanlamagroup.com/");
-        await expect(this.page.getByText(' Kawan Lama Group tidak memungut biaya apapun selama proses pendaftaran dan seleksi karir berlangsung.')).toBeVisible();
+        await expect(this.page.getByText('Kawan Lama Group tidak memungut biaya apapun selama proses pendaftaran dan seleksi karir berlangsung.')).toBeVisible();
 
     }
 
@@ -55,5 +55,19 @@ export class LoginPage {
         await expect(this.page.getByRole('link', { name: 'Kawan Lama Group' }).nth(0)).toBeVisible();
         await expect(this.page.getByRole('link', { name: 'Kawan Lama Group' }).nth(1)).toBeVisible();
         await expect(this.page.getByText('© 2022 Kawan Lama Group', {exact:true})).toBeVisible();
+    }
+    async logintanpapassword(){
+        await this.page.getByRole('link', { name: 'Masuk' }).click();
+        await this.page.getByLabel('Email').fill('fikriramadhan180199@gmail.com');
+        await this.page.getByLabel('Kata Sandi').fill('');
+        await this.page.getByRole('button', { name: 'Masuk' }).click();
+        await expect(this.page.getByText('Kata Sandi harus diisi')).toBeVisible();
+    }
+    async logintanpaemail(){
+        await this.page.getByRole('link', { name: 'Masuk' }).click();
+        await this.page.getByLabel('Email').fill('');
+        await this.page.getByLabel('Kata Sandi').fill('acengramadhan18');
+        await this.page.getByRole('button', { name: 'Masuk' }).click();
+        await expect(this.page.getByText('Email harus diisi')).toBeVisible();
     }
 }

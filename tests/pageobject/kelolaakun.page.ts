@@ -31,6 +31,7 @@ export class KelolaAkunPage {
         await expect(this.page.getByText('Kualifikasi')).toBeVisible();
         await expect(this.page.getByText('Skill yang dibutuhkan')).toBeVisible();
         //Body
+        await this.page.getByRole('link', { name: 'Kelola Akun' }).click();
         await expect(this.page.getByText('Kelola Akun')).toBeVisible;
         await expect(this.page.getByText('Konfirmasi Akun')).toBeVisible;
         await expect(this.page.getByText('Alamat Email')).toBeVisible;
@@ -38,15 +39,18 @@ export class KelolaAkunPage {
         await expect(this.page.getByText('Status Konfirmasi')).toBeVisible;
         await expect(this.page.getByText('Terkonfirmasi')).toBeVisible;
         await expect(this.page.getByText('Kata Sandi')).toBeVisible;
-        // await this.page.getByRole('button', {name: 'Ubah Kata Sandi'}).click();
-        // await expect(this.page.getByText('Ubah Kata Sandi')).toBeVisible;
-        // await expect(this.page.getByText('Kata sandi lama')).toBeVisible;
-        // await this.page.getByLabel('OldPassword').fill('acengramadhan18');
-        // await this.page.getByLabel('OldPassword').clear();
-        // await expect(this.page.getByText('Kata sandi baru')).toBeVisible;
-        // await this.page.getByLabel('NewPassword').fill('testingaja123');
-        // await this.page.getByLabel('NewPassword').clear();
-        // await expect(this.page.getByRole('button', { name: 'Simpan' })).toBeVisible;
+        await this.page.getByRole('button', {name: 'Ubah Kata Sandi'}).click();
+        await expect(this.page.getByText('Ubah Kata Sandi')).toBeVisible;
+        await expect(this.page.getByText('Kata sandi lama')).toBeVisible;
+        await this.page.getByPlaceholder('Ketik kata sandi lama').fill('acengramadhan18');
+        await this.page.getByPlaceholder('Ketik kata sandi lama').clear();
+        await expect(this.page.getByText('Kata sandi baru')).toBeVisible;
+        await this.page.getByPlaceholder('Ketik kata sandi baru').fill('testing123');
+        await this.page.getByPlaceholder('Ketik kata sandi baru').clear();
+        await expect(this.page.getByText('Konfirmasi kata sandi baru')).toBeVisible;
+        await this.page.getByPlaceholder('Ketik ulang kata sandi baru').fill('testing123');
+        await this.page.getByPlaceholder('Ketik ulang kata sandi baru').clear();
+        await expect(this.page.getByRole('button', { name: 'Simpan' })).toBeVisible;
         //Footer
         await this.page.evaluate(() => {window.scrollTo(0, document.body.scrollHeight);});
         await expect(this.page.getByRole('link', { name: 'Tentang Kami' })).toBeVisible();
