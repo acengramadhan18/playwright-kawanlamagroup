@@ -38,10 +38,5 @@ test.describe("Login - Positive", () => {
         fullPage: true,
     });
         await logout.logout()
-        // Evidence screenshot setelah logout
-        await loginPage.page.screenshot({
-        path: `evidence/positive-logout-success.png`,
-        fullPage: true,
-    });
     });
 });
